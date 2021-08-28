@@ -1,23 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { MongoClient } = require('mongodb');
-// require('dotenv').config();
+require('dotenv').config();
+
 
 // App
 const app = express();
 
-// Database
-const uri = "mongodb+srv://admin:QvnC5AXUdT2j0S5l@cluster0.ntidi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
+// Database
+mongoose.connect(process.env.DATABASE_CONNECTION_STRING, { useNewUrlParser: true }).catch(err => {
+    console.log('Erro ao tentar se conectar com o MongoDB');
+})
 
 const db = mongoose.connection;
-  
+
 db.on('connected', () => {
     console.log('Mongoose default connection is open');
 });
@@ -33,14 +31,22 @@ db.on('disconnected', () => {
 process.on('SIGINT', () => {
     db.close(() => {
         console.log(
-        'Mongoose default connection is disconnected due to application termination'
-        );
-        process.exit(0);
+            'Mongoose default connection is disconnected due to application termination'
+            );
+            process.exit(0);
+        });
     });
-});
 
+// Load models
+const Mentions = require('./models/mentions');
+    
 // Load routes
 const indexRoutes = require('./routes/index-routes');
 app.use('/', indexRoutes);
+
+const mentionsRoutes = require('./routes/mentions-routes');
+app.use('/mentions', mentionsRoutes);
+
+
 
 module.exports = app;

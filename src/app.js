@@ -38,14 +38,14 @@ process.on('SIGINT', () => {
     });
 
 // Load models
-const Mentions = require('./models/mentions');
+const Forms = require('./models/forms');
     
 // Load routes
 const indexRoutes = require('./routes/index-routes');
 app.use('/', indexRoutes);
 
-const mentionsRoutes = require('./routes/mentions-routes');
-app.use('/mentions', mentionsRoutes);
+const formRoutes = require('./routes/forms-routes');
+app.use('/form', formRoutes);
 
 
 

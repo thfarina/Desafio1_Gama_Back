@@ -1,3 +1,4 @@
+const cors = require('cors');
 const app = require('../src/app');
 const http = require('http');
 const debug = require('debug')('nodestr:server');

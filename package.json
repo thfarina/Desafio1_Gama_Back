@@ -12,13 +12,15 @@
     "url": "git+https://github.com/thfarina/Desafio1_Gama.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Thalita Farina",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thfarina/Desafio1_Gama/issues"
   },
   "homepage": "https://github.com/thfarina/Desafio1_Gama#readme",
   "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
     "debug": "^4.3.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

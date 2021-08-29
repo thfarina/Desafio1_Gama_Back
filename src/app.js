@@ -18,10 +18,8 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // Database
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, { useNewUrlParser: true })
-.then(() => console.log("Mongoose conectado!"))
-.catch(err => {
-    console.log('Erro ao tentar se conectar com o MongoDB');
-})
+.then(() => {console.log("Mongoose conectado!");})
+.catch(err => {console.log('Erro ao tentar se conectar com o MongoDB');})
 
 const db = mongoose.connection;
 

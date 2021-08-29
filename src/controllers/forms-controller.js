@@ -10,6 +10,7 @@ exports.listForms = async (req, res) => {
     
     return res.status(200).send({data});
   } catch (e) {
+    console.log(e);
     res.status(500).send({message: 'Falha ao carregar respostas do formulário.'});
   }
 };

@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocs = require('./swagger.json');
 require('dotenv').config();
 
 
@@ -12,6 +14,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(cors());
 
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // Database
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, { useNewUrlParser: true }).catch(err => {

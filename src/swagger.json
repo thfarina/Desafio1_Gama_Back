@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API do Formulário JobsNet",
+        "description": "API desenvolvida durante projeto final do Start Tech da Gama Academy",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "ambiente de densenvolvimento"
+        }
+    ],
+    "paths": {
+        "/form": {
+            "post": {
+                "summary": "Cadastro do candidato",
+                "description": "Rota para cadastro do candidato",
+                "tags": ["candidato"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {"type": "String"},
+                                    "cargo": {"type": "String"},
+                                    "birth": {"type": "String"},
+                                    "estadocivil": {"type": "String"},
+                                    "genero": {"type": "String"},
+                                    "CEP": {"type": "String"},
+                                    "endereco": {"type": "String"},
+                                    "numero": {"type": "String"},
+                                    "complemento": {"type": "String"},
+                                    "bairro": {"type": "String"},
+                                    "cidade": {"type": "String"},
+                                    "estado": {"type": "String"},
+                                    "celular": {"type": "String"},
+                                    "telefone1": {"type": "String"},
+                                    "email": {"type": "String"},
+                                    "identidade": {"type": "String"},
+                                    "CPF": {"type": "String"},
+                                    "veiculo": {"type": "String"},
+                                    "habilitacao": {"type": "String"}
+                                }
+                            },
+                            "examples": {
+                                "Cadastro exemplo": {
+                                    "value": {
+                                        "nome": "Thalita",
+                                        "cargo": "Presidente",
+                                        "birth": "01/01/2020",
+                                        "estadocivil": "Solteira",
+                                        "genero": "Feminino",
+                                        "CEP": "37468000",
+                                        "endereco": "Rua dos bobos",
+                                        "numero": "0",
+                                        "complemento": "segundo andar",
+                                        "bairro": "Limoeiro",
+                                        "cidade": "Pouso Alto",
+                                        "estado": "MG",
+                                        "celular": "11999999999",
+                                        "telefone1": "1199999999",
+                                        "email": "email@email.com",
+                                        "identidade": "52525252",
+                                        "CPF": "29119296088",
+                                        "veiculo": "Sim",
+                                        "habilitacao": "Não"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

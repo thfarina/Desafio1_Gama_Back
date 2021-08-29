@@ -7,7 +7,8 @@ const Forms = mongoose.model('Forms');
 exports.listForms = async (req, res) => {
   try {
     const data = await Forms.find();
-    res.status(200).send({data});
+    
+    return res.status(200).send({data});
   } catch (e) {
     res.status(500).send({message: 'Falha ao carregar respostas do formulário.'});
   }
